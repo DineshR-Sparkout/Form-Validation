@@ -1,0 +1,15 @@
+.input-group input,textarea{
+    outline: none;
+}
+.input-group .error{
+    color: red;
+}
+.input-group.success input{
+    border:green solid 2px;
+}
+.input-group.error input{
+    border:red solid 2px;
+}
+#fname,#email,#phone,#address{
+    border: none;
+}
