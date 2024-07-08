@@ -22,7 +22,7 @@
         </div>
         <div class="d-flex flex-column gap-2 input-group">
             <label class="text-primary fs-6 fw-bold" for="phone">Phone</label>
-            <input class="rounded-1 p-2 bg-primary-subtle text-black" type="tel" name="phone" id="phone" placeholder="Enter Your Phone Number">
+            <input class="rounded-1 p-2 bg-primary-subtle text-black" type="tel"  name="phone" id="phone" placeholder="Enter Your Phone Number">
             <div class="error"></div> 
         </div>
         <div class="d-flex flex-column gap-2 input-group">
@@ -79,7 +79,8 @@
         } else if (phoneval.length !== 10) {
             success = false;
             setError(phone, "Please enter 10 digits for the phone number");
-        } else {
+        }
+        else {
             setSuccess(phone);
         }
 
@@ -92,6 +93,10 @@
 
         return success;
     }
+    phone.addEventListener('input', function (e) {
+        this.value = this.value.replace(/[^0-9]/g, '');
+    });
+
 
     function setError(element, message) {
         const inputGroup = element.parentElement;
@@ -108,9 +113,11 @@
         inputGroup.classList.add('success');
         inputGroup.classList.remove('error');
     }
-
     const validateEmail = (email) => {
         return /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(email);
+    }
+    const validatePhone = (phone) => {
+        return /^[0-9]*$/.test(phone);
     }
 </script>
 </body>
